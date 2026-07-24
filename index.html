@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>FunBox — Le terrain de jeu du groupe</title>
+<meta name="description" content="FunBox : mini salle d'arcade pour animer ton groupe WhatsApp avec quiz, blagues, roue de la chance et plus encore." />
+
+<!-- Polices : Poppins (titres) + Inter (texte), alignées sur le portfolio -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Style -->
+<link rel="stylesheet" href="assets/css/style.css" />
+
+<!-- Favicon inline -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%234F6F52%22/><text x=%2250%22 y=%2266%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22%23F7F4ED%22 font-family=%22Arial%22 font-weight=%22bold%22>F</text></svg>">
+</head>
+<body data-theme="light">
+
+  <!-- ============================================================
+       SPLASH SCREEN
+  ============================================================= -->
+  <div id="splash-screen">
+    <div class="splash-logo"><i class="fa-solid fa-gamepad"></i></div>
+    <div class="splash-title">FUNBOX</div>
+    <div class="splash-loader"></div>
+  </div>
+
+  <!-- Fond de particules animées -->
+  <canvas id="bg-particles"></canvas>
+  <!-- Canvas de confettis (au-dessus de tout) -->
+  <canvas id="confetti-canvas"></canvas>
+  <!-- Toasts (succès débloqués, etc.) -->
+  <div id="toast-container"></div>
+
+  <!-- ============================================================
+       APPLICATION
+  ============================================================= -->
+  <div id="app">
+
+    <header class="topbar">
+      <div class="topbar-brand"><i class="fa-solid fa-hexagon-nodes"></i> FUNBOX</div>
+      <div class="topbar-actions">
+        <button id="achievements-toggle" class="icon-btn ripple-target" title="Succès et statistiques" aria-label="Succès et statistiques"><i class="fa-solid fa-trophy"></i></button>
+        <button id="sound-toggle" class="icon-btn ripple-target" title="Activer/couper le son" aria-label="Activer ou couper le son"><i class="fa-solid fa-volume-high"></i></button>
+        <button id="theme-toggle" class="icon-btn ripple-target" title="Changer de thème" aria-label="Changer de thème"><i class="fa-solid fa-moon"></i></button>
+      </div>
+    </header>
+
+    <!-- ÉCRAN D'ACCUEIL -->
+    <section id="screen-home" class="screen active">
+      <div class="hero">
+        <span class="hero-eyebrow"><i class="fa-solid fa-satellite-dish"></i> Arcade officielle</span>
+        <h1 class="hero-title">FUNBOX</h1>
+        <p class="hero-subtitle">Le terrain de jeu officiel du groupe WhatsApp</p>
+        <div id="stats-bar" class="stats-bar"></div>
+      </div>
+      <div id="cards-grid" class="cards-grid"></div>
+    </section>
+
+    <!-- ÉCRANS DE JEUX (générés dynamiquement par script.js) -->
+    <div id="game-screens"></div>
+
+  </div>
+
+  <!-- ============================================================
+       MODAL SUCCÈS / STATISTIQUES
+  ============================================================= -->
+  <div id="modal-overlay">
+    <div class="modal-box" style="position:relative;">
+      <button id="modal-close" class="icon-btn ripple-target modal-close" aria-label="Fermer">✕</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS (ordre important : utils puis jeux puis script)
+  ============================================================= -->
+  <script src="assets/js/utils.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/wheel.js"></script>
+  <script src="assets/js/reaction.js"></script>
+  <script src="assets/js/hangman.js"></script>
+  <script src="assets/js/bomb.js"></script>
+  <script src="assets/js/gift.js"></script>
+  <script src="assets/js/jokes.js"></script>
+  <script src="assets/js/compliments.js"></script>
+  <script src="assets/js/riddles.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
