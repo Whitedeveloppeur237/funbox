@@ -197,3 +197,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // Splash screen
   playSplashThenReveal();
 });
+
+document.addEventListener("keydown", function (e) {
+    if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.key.toLowerCase() === "u") ||
+        (e.ctrlKey && e.shiftKey && ["i", "j", "c"].includes(e.key.toLowerCase()))
+    ) {
+        e.preventDefault();
+        // alert("Cette action est désactivée.");
+    }
+});
+
+
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+});
